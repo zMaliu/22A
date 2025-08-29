@@ -1,12 +1,12 @@
 clc; clear;
 param = makeParam();
 T=1/(param.q2.B);
-tspan = T:0.01:40*T;
+tspan = [0 40*(1/param.q2.B)]; 
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
 
 % 生成阻尼系数网格
-k_zn_a_range = linspace(35000, 45000, 20);  % 阻尼系数a范围
+k_zn_a_range = linspace(0, 100000, 20);  % 阻尼系数a范围
 k_zn_b_range = linspace(0, 1, 20);       % 阻尼系数b范围
 [K_zn_a, K_zn_b] = meshgrid(k_zn_a_range, k_zn_b_range);
 

@@ -25,12 +25,12 @@ param.L0 = 0.5;        % m    弹簧原长（垂向）
 % 5. 静水恢复力矩系数
 param.C44 = 8890.7;    % N·m  纵摇静水恢复力矩系数
 
-param.q2.B = 2.2143;	
-param.q2.C = 1165.992;
-param.q2.D = 7131.29;
-param.q2.E = 167.8395;
-param.q2.F = 2992.724;   
-param.q2.G = 4890;
-param.q2.H = 2560;
+param.q.B = 2.2143;	
+param.q.C = 1165.992;
+param.q.D = 7131.29;
+param.q.E = 167.8395;
+param.q.F = 2992.724;   
+param.q.G = 4890;
+param.q.H = 2560;
 
 end
