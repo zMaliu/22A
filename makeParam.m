@@ -1,5 +1,4 @@
 function param = makeParam()
-
 % 1. 物理常量
 param.g   = 9.8;       % m/s^2
 param.rho = 1025;      % kg/m^3
