@@ -1,12 +1,13 @@
 clc; clear;
 param = makeParam();
-tspan = [0 100];
+T=1/(param.q2.B);
+tspan = T:0.01:40*T;
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
 
 % 生成阻尼系数网格
-k_zn_a_range = linspace(35000, 45000, 1000);  % 阻尼系数a范围
-k_zn_b_range = linspace(0, 1, 100);       % 阻尼系数b范围
+k_zn_a_range = linspace(35000, 45000, 20);  % 阻尼系数a范围
+k_zn_b_range = linspace(0, 1, 20);       % 阻尼系数b范围
 [K_zn_a, K_zn_b] = meshgrid(k_zn_a_range, k_zn_b_range);
 
 % 计算每个参数组合的输出功率
