@@ -2,9 +2,10 @@ clc;clear;
 param = makeParam();
 tspan = [0 100];
 
+k_zn_a = 10000;k_zn_b = 0;
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
-[t, y] = ode45(@(t,y) F_ode(t,y,param), tspan, y0, opts);
+[t, y] = ode45(@(t,y) F_ode(t,y,param,k_zn_a,k_zn_b), tspan, y0, opts);
 
 xf = y(:,1);   vf = y(:,2);
 xz = y(:,3);   vz = y(:,4);

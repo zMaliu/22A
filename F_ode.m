@@ -1,13 +1,10 @@
-function dydt = F_ode(t, y, param)
+function dydt = F_ode(t, y, param,k_zn_a,k_zn_b)
     % y(1)=x_f , y(2)=v_f , y(3)=x_z , y(4)=v_z
     x_f = y(1);  v_f = y(2);
     x_z = y(3);  v_z = y(4);
 
-    k_zn_1 = 10000;
-    %k_zn_2 = 10000*(abs(v_f - v_z)^0.5);
     % 1. 计算PTO力
-    F_pto = param.k*(x_f - x_z) + k_zn_1*(v_f - v_z);
-    %F_pto = param.k*(x_f - x_z) + k_zn_2*(v_f - v_z);
+    F_pto = param.k*(x_f - x_z) + k_zn_a*(abs(v_f - v_z)^k_zn_b)*(v_f - v_z);
 
     % 2. 计算两个加速度
     RHS_f = param.q1.G*cos(param.q1.B*t) ...
