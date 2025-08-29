@@ -5,8 +5,8 @@ function P_avg = F_outputE(t, y, param, k_zn_a, k_zn_b)
     
     z1 = y(:,1); v1 = y(:,2);  % 浮子位移和速度
     z2 = y(:,3); v2 = y(:,4);  % 振子位移和速度
-    v_rel = v2 - v1;          % 相对速度
-    z_rel = z2 - z1;          % 相对位移
+    v_rel = v1 - v2;          % 相对速度
+    z_rel = z1 - z2;          % 相对位移
     
     % 计算PTO力（包含线性弹簧和非线性阻尼）
     F_pto = param.k * z_rel + k_zn_a * (abs(v_rel).^k_zn_b) .* v_rel;
