@@ -1,7 +1,7 @@
 clc; clear;
 param = makeParam();
-T=1/(param.q2.B);
-tspan = [0 40*(1/param.q2.B)]; 
+T=1/(param.q.B);
+tspan = [0 40*(1/param.q.B)]; 
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
 
