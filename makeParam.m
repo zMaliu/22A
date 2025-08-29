@@ -28,10 +28,10 @@ param.C44 = 8890.7;    % N·m  纵摇静水恢复力矩系数
 % 6. 根据"4Q_param"对应填充不同问题的参数
 param.q1.B = 1.4005;
 param.q1.C = 1335.535;
-param.q1.D = 656.3616;
-param.q1.E = 6250;
-param.q1.F = 6779.315;   % kg·m^2
-param.q1.G = 151.4388;
+param.q1.D = 6779.315;
+param.q1.E = 656.3616;
+param.q1.F = 151.4388;   % kg·m^2
+param.q1.G = 6250;
 param.q1.H = 1230;
 
 
