@@ -1,6 +1,6 @@
 clc;clear;
 param = makeParam();
-tspan = [0 150];
+tspan = 0:0.05:150;
 
 k_zn_b = 0;
 k_zn_a = 10000;
@@ -8,7 +8,7 @@ k_zn_a_theta = 1000;
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
 [t, y] = ode45(@(t,y) F_ode(t,y,param,k_zn_a,k_zn_b), tspan, y0, opts);
-[t_theta, y_theta] = ode45(@(t_theta,y_theta) F_ode_theta(t_theta,y_theta,param,k_zn_a_theta), tspan, y0, opts);
+[t, y_theta] = ode45(@(t,y_theta) F_ode_theta(t,y_theta,param,k_zn_a_theta), tspan, y0, opts);
 
 xf = y(:,1);   
 vf = y(:,2);
@@ -45,8 +45,8 @@ grid on
 
 % 3) 纵摇位移
 subplot(2,2,3)
-plot(t_theta, theta_xf,  'b-',  'LineWidth',1.2); hold on;
-plot(t_theta, theta_xz,  'r-', 'LineWidth',1.2);
+plot(t, theta_xf,  'b-',  'LineWidth',1.2); hold on;
+plot(t, theta_xz,  'r-', 'LineWidth',1.2);
 ylabel('位移  (m)');
 xlabel('时间 (s)');
 title('纵摇运动浮子和振子的位移', 'FontSize', 21);
@@ -55,8 +55,8 @@ grid on
 
 % 4) 纵摇速度
 subplot(2,2,4)
-plot(t_theta, theta_vf,  'b-',  'LineWidth',1.2); hold on;
-plot(t_theta, theta_vz,  'r-', 'LineWidth',1.2);
+plot(t, theta_vf,  'b-',  'LineWidth',1.2); hold on;
+plot(t, theta_vz,  'r-', 'LineWidth',1.2);
 ylabel('速度  (m/s)');
 xlabel('时间 (s)');
 title('纵摇运动浮子和振子的速度', 'FontSize', 21);
