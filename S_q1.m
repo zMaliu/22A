@@ -34,7 +34,7 @@ writetable(T, 'result1-2.xlsx');
 %}
 
 
-
+%{
 % 1. 目标时间点
 t_req = 0 : 10 : 100;          % 0, 0.2, 0.4, …, 28
 
@@ -55,4 +55,4 @@ T = table(t_req.', xf_req.', vf_req.', xz_req.', vz_req.', ...
           'VariableNames', {'t','xf','vf','xz','vz'});
 % writetable(T, 'result1_100s.xlsx');
 writetable(T, 'result1_200s.xlsx');
-
+%}

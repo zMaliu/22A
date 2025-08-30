@@ -11,6 +11,7 @@ param.H_cone      = 0.8;       % m  圆锥高度
 param.D           = 2*param.R; % m  圆柱外径
 param.Sw          = pi*param.R^2;     % m^2  水线面积
 param.rhogSw      = param.rho*param.g*param.Sw; % N/m  静水恢复系数
+param.rho_f       = param.m1/(pi*param.R^2 + 2*pi*param.H_cyl + pi*sqrt(param.R^2 + param.H_cone^2)); % 浮子的密度
 
 % 3. 振子
 param.m2          = 2433.0;    % kg
@@ -25,12 +26,11 @@ param.L0 = 0.5;        % m    弹簧原长（垂向）
 % 5. 静水恢复力矩系数
 param.C44 = 8890.7;    % N·m  纵摇静水恢复力矩系数
 
-param.q.B = 2.2143;	
-param.q.C = 1165.992;
-param.q.D = 7131.29;
-param.q.E = 167.8395;
-param.q.F = 2992.724;   
-param.q.G = 4890;
-param.q.H = 2560;
-
+param.q.B = 1.7152;
+param.q.C = 1028.876;
+param.q.D = 7001.914;
+param.q.E = 683.4558;
+param.q.F = 654.3383;   
+param.q.G = 3640;
+param.q.H = 1690;
 end

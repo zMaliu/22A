@@ -1,6 +1,6 @@
 clc;clear;
 param = makeParam();
-tspan = [0 100];
+tspan = [0 200];
 k_zn_a = 10000;k_zn_b = 0.5;
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
@@ -13,25 +13,20 @@ xz = y(:,3);   vz = y(:,4);
 figure;
 
 subplot(2,2,1)
-plot(t,xf,'b-')
-ylabel('x_f  (m)','Rotation',0);
-xlabel('t (s)');
-title('浮子位移关于时间的函数图像',"FontSize",21); grid on
+plot(t, xf,  'b-',  'LineWidth',1.2); hold on;
+plot(t, xz,  'r-', 'LineWidth',1.2);
+ylabel('位移 (m)');
+xlabel('时间 (s)');
+title('垂荡运动浮子和振子的位移', 'FontSize', 21);
+legend('浮子','振子');
+grid on
 
+% 2) 垂荡速度
 subplot(2,2,2)
-plot(t,vf,'b-')
-ylabel('v_f  (m/s)','Rotation',0);
-xlabel('t (s)');
-title('浮子速度关于时间的函数图像',"FontSize",21); grid on
-
-subplot(2,2,3)
-plot(t,xz,'r-')
-ylabel('x_z  (m)','Rotation',0); 
-xlabel('t (s)');
-title('振子位移关于时间的函数图像',"FontSize",21); grid on
-
-subplot(2,2,4)
-plot(t,vz,'r-')
-ylabel('v_z  (m/s)','Rotation',0); 
-xlabel('t (s)');
-title('振子速度关于时间的函数图像',"FontSize",21); grid on
+plot(t, vf,  'b-',  'LineWidth',1.2); hold on;
+plot(t, vz,  'r-', 'LineWidth',1.2);
+ylabel('速度  (m/s)');
+xlabel('时间 (s)');
+title('垂荡运动浮子和振子的速度', 'FontSize', 21);
+legend('浮子','振子');
+grid on
