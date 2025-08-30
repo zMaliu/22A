@@ -46,3 +46,4 @@ T = table(t_req.', xf_req.', vf_req.', theta_xf_round.', theta_vf_round.', ...
           'VariableNames', {'时间','f垂荡位移','f垂荡速度','f纵摇角位移 ','f纵摇角速度 ','z垂荡位移','z垂荡速度','z纵摇角位移 ','z纵摇角速度 '});
 writetable(T, 'result3.xlsx');
 % writetable(T, 'result300.xlsx');
+

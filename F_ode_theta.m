@@ -1,4 +1,4 @@
-function dydt = F_ode_theta(t, y, param,k_zn_a,k_zn_b)
+function dydt = F_ode_theta(t, y, param,k_zhi,k_xuan)
     xf = y(1);  
     vf = y(2);
     xz = y(3);  
@@ -16,7 +16,7 @@ function dydt = F_ode_theta(t, y, param,k_zn_a,k_zn_b)
     I_z = (param.m2*(param.r2)^2)/4 + (param.m2*(param.h2)^2)/12 + param.m2*(theta_xz)^2;
 
     % 计算PTO力
-    F_pto_theta = param.k*(theta_xf - theta_xz) + k_zn_a*(theta_vf - theta_vz);
+    F_pto_theta = param.k*(theta_xf - theta_xz) + k_xuan*(theta_vf - theta_vz);
 
     % 计算两个加速度
     RHS_f_theta = param.q.H*cos(param.q.B*t) ...
@@ -28,7 +28,7 @@ function dydt = F_ode_theta(t, y, param,k_zn_a,k_zn_b)
     theta_az = F_pto_theta / I_z;
 
     % 计算PTO力
-    F_pto = param.k*(xf - xz) + k_zn_a*(abs(vf - vz)^k_zn_b)*(vf - vz);
+    F_pto = param.k*(xf - xz) + k_zhi*(vf - vz);
 
     % 计算两个加速度
     RHS_f = param.q.G*cos(param.q.B*t)*abs(cos(theta_xf)) ...
