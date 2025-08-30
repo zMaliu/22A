@@ -7,7 +7,7 @@ tspan = 0:0.5:400;
 k_zn_b = 0;
 y0 = [0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
-kza_coarse = 99600:100:99700;          
+kza_coarse = 0:100:100000;          
 kzb_coarse = 0.40:0.01:0.42;            
 
 P_coarse = zeros(numel(kza_coarse), numel(kzb_coarse));

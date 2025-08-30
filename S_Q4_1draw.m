@@ -56,7 +56,7 @@ legend('功率曲线', '最优参数点', 'Location', 'best');
 subplot(2, 2, 3);
 
 % 重新计算纵摇运动数据
-kza_coarse = 500:100:2000;
+kza_coarse = 0:100:2000;
 kzb_coarse = 0:0.1:1;
 P_coarse = zeros(numel(kza_coarse), numel(kzb_coarse));
 

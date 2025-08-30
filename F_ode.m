@@ -13,8 +13,7 @@ function dydt = F_ode(t, y, param,k_zn_a,k_zn_b)
             - F_pto;
 
     a_f = RHS_f / (param.m1 + param.q.C);   
-
-    a_z = (param.m2*param.g + F_pto) / param.m2;
+    a_z = F_pto / param.m2;
 
     % 3. 输出导数
     dydt = [v_f;     % dx_f/dt
