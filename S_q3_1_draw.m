@@ -2,23 +2,19 @@ clc;clear;
 param = makeParam();
 tspan = 0:0.05:150;
 
-k_zn_b = 0;
-k_zn_a = 10000;
-k_zn_a_theta = 1000;
-y0 = [0; 0; 0; 0];
+k_zhi = 10000;
+k_xuan = 1000;
+y0 = [0; 0; 0; 0; 0; 0; 0; 0];
 opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
-[t, y] = ode45(@(t,y) F_ode(t,y,param,k_zn_a,k_zn_b), tspan, y0, opts);
-[t, y_theta] = ode45(@(t,y_theta) F_ode_theta(t,y_theta,param,k_zn_a_theta), tspan, y0, opts);
-
+[t, y] = ode45(@(t,y) F_ode_theta(t, y, param, k_zhi, k_xuan), tspan, y0, opts);
 xf = y(:,1);   
 vf = y(:,2);
 xz = y(:,3);   
 vz = y(:,4);
-
-theta_xf = y_theta(:,1);
-theta_vf = y_theta(:,2);
-theta_xz = y_theta(:,3);
-theta_vz = y_theta(:,4);
+theta_xf = y(:,5);
+theta_vf = y(:,6);
+theta_xz = y(:,7);
+theta_vz = y(:,8);
 
 % 合成一张图，四幅子图，每幅子图里画两条曲线
 figure;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 clc; clear; 
 % ==============================================================
 % 第四题主脚本 S_q4.m
@@ -225,3 +226,15 @@ function param = set_sea_state(param, q_lib, sea_id)
         warning('未找到海况 %s，沿用 makeParam 的默认 param.q。', key);
     end
 end
+=======
+clc;clear;
+param = makeParam();
+tspan = 0:0.05:150;
+
+k_zhi = 60000;
+k_xuan = 98000;
+y0 = [0; 0; 0; 0; 0; 0; 0; 0];
+opts = odeset('RelTol',1e-6,'AbsTol',1e-9);
+[t, y] = ode45(@(t,y) F_ode_theta(t, y, param, k_zhi, k_xuan), tspan, y0, opts);
+P_avg = F_outputE_theta(t, y, param, k_zhi, k_xuan);
+>>>>>>> f78ac65fff8f373ca817070ef85a70c5a65306c0

@@ -17,3 +17,5 @@ F_outputE:用于计算平均输出功率
 S_q2_1draw:第二问作图
 
 F_ode_theta:纵摇运动情况微分方程求解
+
+F_outputE_theta:用于计算有关垂荡运动和纵摇运动的平均输出功率
